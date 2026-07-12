@@ -7,7 +7,7 @@ An end-to-end data science project built on the Superstore Sales dataset - cover
 ---
 
 ## Live Demo
-🔗 **[Add your deployed Streamlit Community Cloud link here]**
+🔗 **http://localhost:8501/**
 
 ## Problem Statement
 Retailers lose money in both directions when demand forecasting goes wrong — overstock ties up capital and storage, understock loses sales and customers. This project builds a system that predicts future product demand, flags unusual sales weeks, groups products by demand behavior, and puts all of it in front of a business user through an interactive dashboard.
