@@ -1,7 +1,7 @@
 # Sales Forecasting & Demand Intelligence System
 
 Superstore sales forecasting, anomaly detection, product segmentation, and
-dashboard — course capstone project.
+dashboard, course capstone project.
 
 ## Data
 Both datasets are the real Kaggle files:
