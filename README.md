@@ -30,12 +30,12 @@ Both datasets are the real Kaggle files:
 | `cluster_assignments.csv` | 6 | Sub-category → demand cluster mapping |
 
 ## Running locally
-`analysis.ipynb` now installs its own dependencies — the very first code cell
+`analysis.ipynb` now installs its own dependencies - the very first code cell
 runs `%pip install pandas numpy matplotlib seaborn statsmodels prophet xgboost
 scikit-learn` automatically. Just open the notebook and run cells top to
 bottom; no separate terminal `pip install` step is required for the notebook.
 (If any of those packages weren't already installed, restart the kernel once
-right after that first cell finishes, then re-run from the top — a fresh
+right after that first cell finishes, then re-run from the top - a fresh
 install isn't picked up by an already-running kernel until it restarts.)
 
 For the dashboard (`app.py`), install dependencies from `requirements.txt`:
