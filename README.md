@@ -20,7 +20,7 @@ Both datasets are the real Kaggle files:
 | File | Task | Description |
 |---|---|---|
 | `analysis.ipynb` | 1–6 | Full analysis notebook, already executed with outputs & charts |
-| `train.csv` | — | Superstore sales dataset |
+| `train.csv` | -- | Superstore sales dataset |
 | `vgsales.csv` | 5 | Video Game Sales dataset, used for the multi-source merge exercise |
 | `app.py` | 7 | Streamlit dashboard (4 pages) |
 | `requirements.txt` | 7 | Dependencies for redeploying `app.py` |
@@ -70,7 +70,7 @@ built for. Prophet and XGBoost are kept in the notebook as cross-checks.
 Every sub-category grew year-over-year in this dataset (no outright decline),
 so clusters are labeled by *relative* growth/stability rather than fixed
 thresholds:
-- **High Volume, Stable Demand** — Bookcases, Paper, Furnishings, Appliances, Art, Envelopes, Fasteners, Labels
-- **Growing Demand** — Supplies
-- **Slower, Steadier Demand** — Chairs, Phones, Tables, Storage, Binders, Accessories
-- **Low Volume, High Volatility** — Copiers, Machines
+- **High Volume, Stable Demand** - Bookcases, Paper, Furnishings, Appliances, Art, Envelopes, Fasteners, Labels
+- **Growing Demand** - Supplies
+- **Slower, Steadier Demand** - Chairs, Phones, Tables, Storage, Binders, Accessories
+- **Low Volume, High Volatility** - Copiers, Machines
