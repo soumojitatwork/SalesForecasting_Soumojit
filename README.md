@@ -19,13 +19,13 @@ Both datasets are the real Kaggle files:
 ## Contents
 | File | Task | Description |
 |---|---|---|
-| `analysis.ipynb` | 1–6 | Full analysis notebook, already executed with outputs & charts |
+| `analysis.ipynb` | 1-6 | Full analysis notebook, already executed with outputs & charts |
 | `train.csv` | -- | Superstore sales dataset |
 | `vgsales.csv` | 5 | Video Game Sales dataset, used for the multi-source merge exercise |
 | `app.py` | 7 | Streamlit dashboard (4 pages) |
 | `requirements.txt` | 7 | Dependencies for redeploying `app.py` |
 | `summary.docx` | 8 | 2-page executive business report |
-| `charts/` | 1–6 | All chart PNGs saved from the notebook |
+| `charts/` | 1-6 | All chart PNGs saved from the notebook |
 | `model_comparison.csv` | 3 | SARIMA vs Prophet vs XGBoost metrics |
 | `cluster_assignments.csv` | 6 | Sub-category → demand cluster mapping |
 
