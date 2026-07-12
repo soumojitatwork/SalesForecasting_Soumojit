@@ -50,7 +50,7 @@ streamlit run app.py                # launch the dashboard
    `train.csv`, and `requirements.txt` at minimum).
 2. Go to https://share.streamlit.io → **New app** → select the repo, branch,
    and set the main file path to `app.py`.
-3. Click **Deploy** — first build takes a few minutes (installs Prophet et al.
+3. Click **Deploy** - first build takes a few minutes (installs Prophet et al.
    from `requirements.txt`).
 4. Copy the live `*.streamlit.app` URL for submission.
 
@@ -63,7 +63,7 @@ streamlit run app.py                # launch the dashboard
 
 SARIMA won this time because the monthly sales series turned out to already
 be statistically stationary (see the ADF test in Task 2) with a strong,
-regular seasonal pattern — exactly the setting a seasonal ARIMA model is
+regular seasonal pattern, exactly the setting a seasonal ARIMA model is
 built for. Prophet and XGBoost are kept in the notebook as cross-checks.
 
 ## Product demand clusters (Task 6)
