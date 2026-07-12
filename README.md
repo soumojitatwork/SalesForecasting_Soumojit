@@ -105,16 +105,16 @@ SARIMA performed best here because the monthly sales series turned out to alread
 
 Every sub-category grew year-over-year in this dataset (no outright decline), so clusters are labeled *relative to each other* rather than by fixed thresholds:
 
-- **High Volume, Stable Demand** — Bookcases, Paper, Furnishings, Appliances, Art, Envelopes, Fasteners, Labels
-- **Growing Demand** — Supplies
-- **Slower, Steadier Demand** — Chairs, Phones, Tables, Storage, Binders, Accessories
-- **Low Volume, High Volatility** — Copiers, Machines
+- **High Volume, Stable Demand** - Bookcases, Paper, Furnishings, Appliances, Art, Envelopes, Fasteners, Labels
+- **Growing Demand** - Supplies
+- **Slower, Steadier Demand** - Chairs, Phones, Tables, Storage, Binders, Accessories
+- **Low Volume, High Volatility** - Copiers, Machines
 
 ---
 
 ## Challenges Faced
 
-- **Date format mismatch** — the dataset used `DD/MM/YYYY`, not `MM/DD/YYYY`; pandas parsed it wrong silently for the first 12 days of each month instead of erroring out.
+- **Date format mismatch** - the dataset used `DD/MM/YYYY`, not `MM/DD/YYYY`; pandas parsed it wrong silently for the first 12 days of each month instead of erroring out.
 - **Choosing SARIMA's (p,d,q) parameters** - ran a small grid search on AIC instead of guessing blindly.
 - **Comparing 3 different models fairly** - SARIMA, Prophet, and XGBoost each need different input formats, so ensuring all three were evaluated on the exact same held-out months took extra care.
 - **Cluster labels breaking on fixed thresholds** - an initial "growth > 5% = Growing Demand" rule labeled every cluster identically since all sub-categories happened to grow; switched to relative labeling instead.
