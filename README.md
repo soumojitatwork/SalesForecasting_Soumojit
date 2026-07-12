@@ -1,4 +1,4 @@
-# 📊 Sales Forecasting & Demand Intelligence System
+# Sales Forecasting & Demand Intelligence System
 
 An end-to-end data science project built on the Superstore Sales dataset - covering time-series analysis, multi-model forecasting, anomaly detection, product segmentation, and a live interactive dashboard. Built as a capstone project to practice the full pipeline a real data science team would own: from messy CSVs to a business-ready tool.
 
@@ -6,15 +6,15 @@ An end-to-end data science project built on the Superstore Sales dataset - cover
 
 ---
 
-## 🚀 Live Demo
+## Live Demo
 🔗 **[Add your deployed Streamlit Community Cloud link here]**
 
-## 🎯 Problem Statement
+## Problem Statement
 Retailers lose money in both directions when demand forecasting goes wrong — overstock ties up capital and storage, understock loses sales and customers. This project builds a system that predicts future product demand, flags unusual sales weeks, groups products by demand behavior, and puts all of it in front of a business user through an interactive dashboard.
 
 ---
 
-## ✅ Features / Tasks Covered
+## Features / Tasks Covered
 
 | # | Task | What it does |
 |---|---|---|
@@ -29,7 +29,7 @@ Retailers lose money in both directions when demand forecasting goes wrong — o
 
 ---
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Category | Tools |
 |---|---|
@@ -44,7 +44,7 @@ Retailers lose money in both directions when demand forecasting goes wrong — o
 
 ---
 
-## 📁 Repository Structure
+## Repository Structure
 
 ```
 SalesForecasting_Student/
@@ -62,7 +62,7 @@ SalesForecasting_Student/
 
 ---
 
-## ⚙️ Setup & Usage
+## Setup & Usage
 
 ### 1. Clone the repo
 ```bash
@@ -91,7 +91,7 @@ Make sure you `cd` into this project folder first — `app.py` looks for `train.
 
 ---
 
-## 📈 Model Results
+## Model Results
 
 | Model | MAE | RMSE | MAPE |
 |---|---|---|---|
@@ -101,7 +101,7 @@ Make sure you `cd` into this project folder first — `app.py` looks for `train.
 
 SARIMA performed best here because the monthly sales series turned out to already be statistically stationary (confirmed via ADF test) with a strong, regular seasonal pattern — exactly the setting a seasonal ARIMA model is designed for.
 
-## 🧩 Product Demand Clusters
+## Product Demand Clusters
 
 Every sub-category grew year-over-year in this dataset (no outright decline), so clusters are labeled *relative to each other* rather than by fixed thresholds:
 
@@ -112,7 +112,7 @@ Every sub-category grew year-over-year in this dataset (no outright decline), so
 
 ---
 
-## 🧗 Challenges Faced
+## Challenges Faced
 
 - **Date format mismatch** — the dataset used `DD/MM/YYYY`, not `MM/DD/YYYY`; pandas parsed it wrong silently for the first 12 days of each month instead of erroring out.
 - **Choosing SARIMA's (p,d,q) parameters** - ran a small grid search on AIC instead of guessing blindly.
