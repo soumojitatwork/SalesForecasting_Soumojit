@@ -1,76 +1,123 @@
-# Sales Forecasting & Demand Intelligence System
+# 📊 Sales Forecasting & Demand Intelligence System
 
-Superstore sales forecasting, anomaly detection, product segmentation, and
-dashboard, course capstone project.
+An end-to-end data science project built on the Superstore Sales dataset - covering time-series analysis, multi-model forecasting, anomaly detection, product segmentation, and a live interactive dashboard. Built as a capstone project to practice the full pipeline a real data science team would own: from messy CSVs to a business-ready tool.
 
-## Data
-Both datasets are the real Kaggle files:
-- `train.csv` - Superstore Sales (`rohitsahoo/sales-forecasting`), 9,800 rows, 2015-2018.
-  **Note:** dates in this file are stored day-first (`DD/MM/YYYY`), which the
-  notebook and `app.py` both parse accordingly (`format="%d/%m/%Y"`).
-- `vgsales.csv` - Video Game Sales (`gregorut/videogamesales`), used in Task 5
-  for the required multi-source merge exercise: Superstore `Technology`
-  category sales are merged with yearly global video-game sales on the `Year`
-  key. Only 3 years overlap (2015-2017) between the two datasets' coverage, so
-  the correlation shown there is a methodology demonstration rather than a
-  statistically robust signal — this caveat is called out directly in the
-  notebook.
+> Superstore sales forecasting project: time-series decomposition, SARIMA/Prophet/XGBoost comparison, anomaly detection (Isolation Forest + Z-score), K-Means product segmentation, and a Streamlit dashboard for inventory planning.
 
-## Contents
-| File | Task | Description |
+---
+
+## 🚀 Live Demo
+🔗 **[Add your deployed Streamlit Community Cloud link here]**
+
+## 🎯 Problem Statement
+Retailers lose money in both directions when demand forecasting goes wrong — overstock ties up capital and storage, understock loses sales and customers. This project builds a system that predicts future product demand, flags unusual sales weeks, groups products by demand behavior, and puts all of it in front of a business user through an interactive dashboard.
+
+---
+
+## ✅ Features / Tasks Covered
+
+| # | Task | What it does |
 |---|---|---|
-| `analysis.ipynb` | 1-6 | Full analysis notebook, already executed with outputs & charts |
-| `train.csv` | -- | Superstore sales dataset |
-| `vgsales.csv` | 5 | Video Game Sales dataset, used for the multi-source merge exercise |
-| `app.py` | 7 | Streamlit dashboard (4 pages) |
-| `requirements.txt` | 7 | Dependencies for redeploying `app.py` |
-| `summary.docx` | 8 | 2-page executive business report |
-| `charts/` | 1-6 | All chart PNGs saved from the notebook |
-| `model_comparison.csv` | 3 | SARIMA vs Prophet vs XGBoost metrics |
-| `cluster_assignments.csv` | 6 | Sub-category → demand cluster mapping |
+| 1 | **EDA & Feature Engineering** | Parses dates, extracts time features, aggregates to weekly/monthly granularity, answers key business questions with data |
+| 2 | **Time Series Decomposition** | Trend/Seasonal/Residual breakdown + Augmented Dickey-Fuller stationarity testing |
+| 3 | **3-Model Forecasting** | SARIMA, Facebook Prophet, and XGBoost compared side-by-side on MAE/RMSE/MAPE |
+| 4 | **Segment-Level Forecasting** | Category & region-level forecasts using the best-performing model |
+| 5 | **Anomaly Detection** | Isolation Forest + rolling Z-score, plus a multi-source merge exercise with the Video Game Sales dataset |
+| 6 | **Product Segmentation** | K-Means clustering (elbow method) + PCA visualization, with relative (not fixed-threshold) cluster labeling |
+| 7 | **Interactive Dashboard** | 4-page Streamlit app: Sales Overview, Forecast Explorer, Anomaly Report, Demand Segments |
+| 8 | **Executive Report** | 2-page business-facing summary (`summary.docx`) — no code, no jargon |
 
-## Running locally
-`analysis.ipynb` now installs its own dependencies - the very first code cell
-runs `%pip install pandas numpy matplotlib seaborn statsmodels prophet xgboost
-scikit-learn` automatically. Just open the notebook and run cells top to
-bottom; no separate terminal `pip install` step is required for the notebook.
-(If any of those packages weren't already installed, restart the kernel once
-right after that first cell finishes, then re-run from the top - a fresh
-install isn't picked up by an already-running kernel until it restarts.)
+---
 
-For the dashboard (`app.py`), install dependencies from `requirements.txt`:
-```bash
-pip install -r requirements.txt
-jupyter notebook analysis.ipynb     # re-run the analysis (self-installing)
-streamlit run app.py                # launch the dashboard
+## 🛠️ Tech Stack
+
+| Category | Tools |
+|---|---|
+| Language | Python 3.x |
+| Data | Pandas, NumPy |
+| Time Series | Statsmodels (SARIMA, decomposition, ADF test) |
+| Forecasting | Facebook Prophet, XGBoost |
+| ML | Scikit-learn (Isolation Forest, K-Means, PCA) |
+| Visualization | Matplotlib, Seaborn |
+| Dashboard | Streamlit |
+| Notebook | Jupyter |
+
+---
+
+## 📁 Repository Structure
+
+```
+SalesForecasting_Student/
+├── analysis.ipynb            # Full analysis notebook (Tasks 1–6), self-installing & pre-executed
+├── app.py                     # Streamlit dashboard (Task 7)
+├── train.csv                  # Superstore Sales dataset
+├── vgsales.csv                 # Video Game Sales dataset (multi-source merge exercise)
+├── requirements.txt           # Dependencies for the dashboard
+├── summary.docx                # Executive business report (Task 8)
+├── model_comparison.csv        # SARIMA vs Prophet vs XGBoost metrics
+├── cluster_assignments.csv     # Sub-category → demand cluster mapping
+├── charts/                     # All chart PNGs exported from the notebook
+└── README.md
 ```
 
-## Deploying the dashboard (Streamlit Community Cloud, free)
-1. Push this whole folder to a **public** GitHub repo (must include `app.py`,
-   `train.csv`, and `requirements.txt` at minimum).
-2. Go to https://share.streamlit.io → **New app** → select the repo, branch,
-   and set the main file path to `app.py`.
-3. Click **Deploy** - first build takes a few minutes (installs Prophet et al.
-   from `requirements.txt`).
-4. Copy the live `*.streamlit.app` URL for submission.
+---
 
-## Model results summary (on real Superstore data, 3-month held-out test)
+## ⚙️ Setup & Usage
+
+### 1. Clone the repo
+```bash
+git clone https://github.com/<your-username>/<your-repo>.git
+cd <your-repo>
+```
+
+### 2. Run the notebook
+`analysis.ipynb` installs its own dependencies in the first cell (`%pip install ...`), so you can just open it and run all cells top to bottom.
+```bash
+jupyter notebook analysis.ipynb
+```
+> First run only: if any packages were missing beforehand, restart the kernel once after the install cell finishes, then re-run from the top.
+
+### 3. Run the dashboard
+```bash
+pip install -r requirements.txt
+streamlit run app.py
+```
+Make sure you `cd` into this project folder first — `app.py` looks for `train.csv` sitting right next to it.
+
+### 4. Deploy the dashboard (free)
+1. Push this repo to GitHub (public).
+2. Go to [share.streamlit.io](https://share.streamlit.io) → **New app** → select this repo → set main file to `app.py` → **Deploy**.
+3. Copy the live `*.streamlit.app` URL.
+
+---
+
+## 📈 Model Results
+
 | Model | MAE | RMSE | MAPE |
 |---|---|---|---|
 | **SARIMA (recommended)** | **13,336** | **13,340** | **14.8%** |
 | Prophet | 20,296 | 22,487 | 21.9% |
 | XGBoost | 23,835 | 29,464 | 23.3% |
 
-SARIMA won this time because the monthly sales series turned out to already
-be statistically stationary (see the ADF test in Task 2) with a strong,
-regular seasonal pattern, exactly the setting a seasonal ARIMA model is
-built for. Prophet and XGBoost are kept in the notebook as cross-checks.
+SARIMA performed best here because the monthly sales series turned out to already be statistically stationary (confirmed via ADF test) with a strong, regular seasonal pattern — exactly the setting a seasonal ARIMA model is designed for.
 
-## Product demand clusters (Task 6)
-Every sub-category grew year-over-year in this dataset (no outright decline),
-so clusters are labeled by *relative* growth/stability rather than fixed
-thresholds:
-- **High Volume, Stable Demand** - Bookcases, Paper, Furnishings, Appliances, Art, Envelopes, Fasteners, Labels
-- **Growing Demand** - Supplies
-- **Slower, Steadier Demand** - Chairs, Phones, Tables, Storage, Binders, Accessories
-- **Low Volume, High Volatility** - Copiers, Machines
+## 🧩 Product Demand Clusters
+
+Every sub-category grew year-over-year in this dataset (no outright decline), so clusters are labeled *relative to each other* rather than by fixed thresholds:
+
+- **High Volume, Stable Demand** — Bookcases, Paper, Furnishings, Appliances, Art, Envelopes, Fasteners, Labels
+- **Growing Demand** — Supplies
+- **Slower, Steadier Demand** — Chairs, Phones, Tables, Storage, Binders, Accessories
+- **Low Volume, High Volatility** — Copiers, Machines
+
+---
+
+## 🧗 Challenges Faced
+
+- **Date format mismatch** — the dataset used `DD/MM/YYYY`, not `MM/DD/YYYY`; pandas parsed it wrong silently for the first 12 days of each month instead of erroring out.
+- **Choosing SARIMA's (p,d,q) parameters** - ran a small grid search on AIC instead of guessing blindly.
+- **Comparing 3 different models fairly** - SARIMA, Prophet, and XGBoost each need different input formats, so ensuring all three were evaluated on the exact same held-out months took extra care.
+- **Cluster labels breaking on fixed thresholds** - an initial "growth > 5% = Growing Demand" rule labeled every cluster identically since all sub-categories happened to grow; switched to relative labeling instead.
+- **Isolation Forest vs Z-score disagreeing a lot** - the two methods agreed on only 1 anomaly out of ~15 flagged combined, a good reminder that "anomaly" isn't a single fixed definition.
+- **Environment/setup friction** - missing packages, PowerShell not recognizing `!pip`, and `FileNotFoundError` from running Streamlit outside the project folder ate up more debugging time than the modeling itself.
+
