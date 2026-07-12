@@ -5,10 +5,10 @@ dashboard — course capstone project.
 
 ## Data
 Both datasets are the real Kaggle files:
-- `train.csv` — Superstore Sales (`rohitsahoo/sales-forecasting`), 9,800 rows, 2015-2018.
+- `train.csv` - Superstore Sales (`rohitsahoo/sales-forecasting`), 9,800 rows, 2015-2018.
   **Note:** dates in this file are stored day-first (`DD/MM/YYYY`), which the
   notebook and `app.py` both parse accordingly (`format="%d/%m/%Y"`).
-- `vgsales.csv` — Video Game Sales (`gregorut/videogamesales`), used in Task 5
+- `vgsales.csv` - Video Game Sales (`gregorut/videogamesales`), used in Task 5
   for the required multi-source merge exercise: Superstore `Technology`
   category sales are merged with yearly global video-game sales on the `Year`
   key. Only 3 years overlap (2015-2017) between the two datasets' coverage, so
